@@ -1,0 +1,36 @@
+
+.split-screen {
+    display: flex;
+    height: 100vh; /* Full height of the viewport */
+  }
+
+.left-section, .right-section {
+    flex: 1; /* Equal width */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in width/height calculations */
+  }
+
+.left-section {
+    background-color: #f0f0f0; /* Light gray */
+  }
+
+.file-upload {
+    display: flex;
+    align-items: flex-start; /* Align items at the start */
+    gap: 20px; /* Space between the two sections */
+    padding: 20px; /* Add some padding */
+}
+  
+.right-section {
+    background-color: #d0e0f0; /* Light blue */
+}
+
+.map-section #gmap_canvas{
+    height: 65vh;
+    width: 100%;
+    border-radius: 5px; 
+}
+
+h3{
+    color: blueviolet;
+}

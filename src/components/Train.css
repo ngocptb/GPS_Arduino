@@ -1,0 +1,46 @@
+/* MetroTrain.css */
+.metro-container {
+    position: relative;
+    overflow: hidden;
+    height: 100px; /* Height for train movement */
+    border: 1px solid #ccc; /* Optional: container border */
+}
+
+
+
+.metro {
+    position: absolute;
+    bottom: 20px; /* Position above the bottom */
+    width: 120px; /* Width of the train */
+    height: 50px; /* Height of the train */
+    background-color: #3498db; /* Train color */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.5s ease; /* Smooth transition */
+
+}
+
+.wheel {
+    width: 20px;
+    height: 20px;
+    background-color: #000;
+    border-radius: 50%; /* Circular wheels */
+    position: absolute;
+    bottom: -10px; /* Position below the train */
+}
+
+.wheel.left {
+    left: 10px;
+}
+
+.wheel.right {
+    right: 10px;
+}
+
+@keyframes moveRight {
+    0% { transform: translateX(-120px); } /* Start slightly off screen */
+    100% { transform: translateX(100vw); } /* Move to the right */
+}
+
+.train-animation {
+    animation: moveRight 5s linear infinite; /* Continuous right movement */
+}
