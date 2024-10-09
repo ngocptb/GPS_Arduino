@@ -1,0 +1,34 @@
+.coordinate-container {
+    padding: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination-button {
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Same size for both buttons */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.pagination-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.pagination-button:disabled {
+    background-color: #ccc; /* Gray color for disabled state */
+    cursor: not-allowed; /* Change cursor to not-allowed */
+}
