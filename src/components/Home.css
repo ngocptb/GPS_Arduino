@@ -1,12 +1,13 @@
 
 .split-screen {
-    display: flex;
-    height: 100vh; /* Full height of the viewport */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns for desktop */
+  height: 100vh; /* Full height of the viewport */
   }
 
 .left-section, .right-section {
     flex: 1; /* Equal width */
-    padding: 20px;
+    padding: 20px; /* Add padding for spacing */
     box-sizing: border-box; /* Include padding in width/height calculations */
   }
 
@@ -20,4 +21,18 @@
     background-color: #d0e0f0; /* Light blue */
 }
 
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .split-screen {
+    grid-template-columns: 1fr; /* Single column for mobile */
+}
 
+.right-section {
+    grid-row: 1; /* Keep this in the first row */
+}
+
+.left-section {
+    grid-row: 2; /* Place this in the second row */
+}
+
+}

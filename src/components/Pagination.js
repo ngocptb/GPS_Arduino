@@ -6,7 +6,8 @@ const Pagination = () => {
     // coordinates: Holds the data retrieved from Firebase.
     const [coordinates, setCoordinates] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
-    const itemsPerPage = 20;
+    const [itemsPerPage, setItemsPerPage] = useState(20); // Default to 20 items per page
+
 
     useEffect(() => {
         const db = getDatabase();
@@ -23,7 +24,21 @@ const Pagination = () => {
             setCoordinates(coordsArray);
         });
 
-        return () => unsubscribe();
+        // Adjust itemsPerPage based on screen size
+        const updateItemsPerPage = () => {
+            if (window.innerWidth <= 768) {
+                setItemsPerPage(5); // 5 items for mobile
+            } else {
+                setItemsPerPage(20); // 20 items for desktop
+            }
+        };
+
+        updateItemsPerPage();
+        window.addEventListener('resize', updateItemsPerPage);
+
+        return () => {
+            unsubscribe();
+        }
     }, []);
 
     // Function to format the timestamp

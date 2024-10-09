@@ -32,7 +32,6 @@ function Header() {
         <div className='navbar-container'>
           <p>The Telecommunication And Signaling Team</p>
           <div className='nav-menu'>{currentTime}</div>
-
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
             <Link to="/manual"><PinDropOutlinedIcon className='nav-links' fontSize="large"/> </Link> 
@@ -47,10 +46,7 @@ function Header() {
             <li className='nav-item'>
               <img src={CompanyLogo} alt="Company" className='nav-logo'/>
             </li>
-
-
-          </ul>
-          
+          </ul>         
         </div>
       </nav>
      

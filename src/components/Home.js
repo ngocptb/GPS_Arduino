@@ -15,7 +15,6 @@ const Home = () => {
             </div>
             <div className='right-section'>
                 <RealtimeAnimate/>
-
             </div>
         </div>
     );

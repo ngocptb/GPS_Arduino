@@ -1,47 +1,60 @@
-import React, { useState } from 'react';
-import "./ResponsiveHeader.css"; 
-import { Link } from 'react-router-dom';
-import { PinDropOutlined, ShareLocationOutlined, HomeOutlined } from '@mui/icons-material';
+import React from "react";
 import CompanyLogo from '../images/Image1.png';
+import "./ResponsiveHeader.css"; 
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-const ResponsiveHeader = () => {
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import ShareLocationOutlinedIcon from '@mui/icons-material/ShareLocationOutlined';
+import PinDropOutlinedIcon from '@mui/icons-material/PinDropOutlined';
+
+
+function ResponsiveHeader() {
   const [click, setClick] = useState(false);
-  const currentTime = new Date().toLocaleTimeString(); // Example for current time
+  const [currentTime, setCurrentTime] = useState('');
+  const updateTime = () => {
+    const now = new Date();
+    const options = { weekday: 'long', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+    setCurrentTime(now.toLocaleString('en-US', options));
+  };
 
-  const handleClick = () => setClick(!click);
+  useEffect(() => {
+    updateTime();
+    const timer = setInterval(updateTime, 1000); // Update every second
 
-  const [active, IsActive] = useState(false);
-
-    const handleNavClick = () =>{
-        IsActive(false);
-    }
+    return () => clearInterval(timer); // Clean up on component unmount
+  }, []);
+  
 
   return (
-    <div className='Navbar'>
-            <span className='nav-logo'>
-                <img src={CompanyLogo} alt="" />
-            </span>
-            <span>
-              <p>Time</p>
-            </span>
-
-            <div className={`nav-items ${active && "switch"}`}>
-                <a>The Telecommunication And Signaling Team</a>
-                <Link to={"/"} onClick={handleNavClick}>Home</Link>
-                <Link to={"/about"} onClick={handleNavClick}>About</Link>
-                <Link to={"/services"} onClick={handleNavClick}>Services</Link>
-                <Link to={"/contact"} onClick={handleNavClick}>Contact</Link>
-                <button>
-                    <span>Get Started</span>
-                </button>
-            </div>
-
-            <div className={`nav-toggle ${active && "switch"}`}
-            onClick={() => IsActive(!active)}>
-                <div className='hamburger'></div>
-            </div>
+    <nav className='navbar'>
+    <div className='navbar-container'>
+        <p className='header-text'>The Telecommunication And Signaling Team</p>
+        <p className='header-text'>{currentTime}</p>
+        <li className='nav-links'><PinDropOutlinedIcon fontSize="large"/></li> 
+        <li className='nav-links'><ShareLocationOutlinedIcon fontSize="large"/></li>
+        <li className='nav-links'><HomeOutlinedIcon fontSize="large"/></li> 
+        <div className='menu-icon' onClick={() => setClick(!click)}>
+            <span className='menu-icon-line'></span>
+            <span className='menu-icon-line'></span>
+            <span className='menu-icon-line'></span>
+        </div>
+        <img src={CompanyLogo} alt="Company" className='nav-logo' />
     </div>
+
+    <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+        <li className='nav-item'>
+            <PinDropOutlinedIcon className='nav-links' fontSize="small" />
+        </li>
+        <li className='nav-item'>
+            <ShareLocationOutlinedIcon className='nav-links' fontSize="large" />
+        </li>
+        <li className='nav-item'>
+            <Link to="/home"><HomeOutlinedIcon className='nav-links' fontSize="large" /></Link>
+        </li>
+    </ul>
+</nav>
   );
-};
+}
 
 export default ResponsiveHeader;
