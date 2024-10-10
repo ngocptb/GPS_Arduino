@@ -1,5 +1,6 @@
 import RealtimeAnimate from "./RealtimeAnimate";
 import RealTimeMap from "./RealtimeMap";
+import RealtimeAnimateVer3 from "./RealtimeAnimateVer3";
 import CoordinateForm from "./CoordinateForm";
 import Pagination from "./Pagination";
 import "./Home.css"; 
@@ -14,7 +15,7 @@ const Home = () => {
                 <Pagination/>
             </div>
             <div className='right-section'>
-                <RealtimeAnimate/>
+                <RealtimeAnimateVer3/>
             </div>
         </div>
     );

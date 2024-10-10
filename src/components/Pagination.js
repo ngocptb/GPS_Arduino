@@ -16,10 +16,9 @@ const Pagination = () => {
         const unsubscribe = onValue(coordinatesRef, (snapshot) => {
             const coords = snapshot.val();
             const coordsArray = [];
-            const currentTime = Date.now(); // Capture the current timestamp
 
             for (let id in coords) {
-                coordsArray.push({ id, ...coords[id], receivedTime: currentTime });
+                coordsArray.push({ id, ...coords[id]});
             }
             setCoordinates(coordsArray);
         });
@@ -41,6 +40,8 @@ const Pagination = () => {
         }
     }, []);
 
+   
+
     // Function to format the timestamp
     const formatTimestamp = (timestamp) => {
         const date = new Date(timestamp);
@@ -58,14 +59,31 @@ const Pagination = () => {
     return (
         <div className="coordinate-container">
             <h3>Data Coordinates In Firebase</h3>
-            <ul>
+            {/* <ul>
                 {currentCoords.map(coord => (
-                    <li key={coord.id}>
-                        Latitude: {coord.latitude}, Longitude: {coord.longitude}, 
-                        Received Time: {formatTimestamp(coord.receivedTime)}
+                    <li key={coord.id} >
+                        Latitude: {coord.latitude}, Longitude: {coord.longitude}
+                    </li>
+                ))}
+            </ul> */}
+
+            <ul className="coordinates-list">
+                {currentCoords.map((coord) => (
+                    <li key={coord.id} className="coordinate-item">
+                        <div className="coordinate-box">
+                            <span className="label">Latitude:</span>
+                            <span className="value">{coord.latitude}</span>
+                            <span className="label">Longitude:</span>
+                            <span className="value">{coord.longitude}</span>
+                        </div>
                     </li>
                 ))}
             </ul>
+
+          
+
+
+
             <div className="pagination">
                 <button 
                     className="pagination-button"

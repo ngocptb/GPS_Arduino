@@ -37,3 +37,38 @@
     background-color: #ccc; /* Gray color for disabled state */
     cursor: not-allowed; /* Change cursor to not-allowed */
 }
+
+
+/* new style for ul */
+
+.coordinates-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.coordinate-item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+}
+
+.coordinate-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.label {
+    font-weight: bold;
+    color: #333;
+}
+
+.value {
+    color: #555;
+}
+

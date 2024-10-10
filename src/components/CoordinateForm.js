@@ -80,14 +80,14 @@ const CoordinateForm = () => {
                 />
                 <button type="submit">Submit</button>
             </form>
-            <h2>Stored Coordinates In FireBase</h2>
+            {/* <h2>Stored Coordinates In FireBase</h2>
             <ul>
                 {coordinates.map((coord) => (
                     <li key={coord.id} >
                         Latitude: {coord.latitude}, Longitude: {coord.longitude}, Received Time: {formatTimestamp(coord.receivedTime)}
                     </li>
                 ))}
-            </ul>
+            </ul> */}
            
         </div>
     );
