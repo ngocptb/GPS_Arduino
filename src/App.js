@@ -19,7 +19,7 @@ const App = () => {
         <Route path="/home" element={<Home/>} />
         <Route path="/manual" element={<Home/>} />
         <Route path="/" element={<Home/>} /> {/* Default route */}
-      </Routes>
+      </Routes> 
       </ErrorBoundary>
 
     </div>
